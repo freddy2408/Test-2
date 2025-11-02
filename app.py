@@ -7,10 +7,17 @@ from datetime import datetime
 import streamlit as st
 from openai import OpenAI
 
+
+
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+MODEL = st.secrets.get("OPENAI_MODEL", "gpt-4o-mini")
+ADMIN_PASSWORD = st.secrets.get("ADMIN_PASSWORD")
+
+
 # ------------------------------------------------------------------------------
 # [DESIGN] – Basis UI, Layout, feste Parameter
 # ------------------------------------------------------------------------------
-st.set_page_config(page_title="iPad-Verhandlung – Kontrollbedingung (ohne Power-Primes)", page_icon="💬")
+st.set_page_config(page_title="iPad-Verhandlung", page_icon="💬")
 
 PRIMARY_COLOR = "#0F766E"  # optischer Akzent
 st.markdown(
